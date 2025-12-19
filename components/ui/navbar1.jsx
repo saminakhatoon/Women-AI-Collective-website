@@ -1,6 +1,6 @@
 "use client";;
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
-
+import Image from 'next/image'
 import {
   Accordion,
   AccordionContent,
@@ -26,127 +26,81 @@ import {
 
 const Navbar1 = ({
   logo = {
-    url: "https://www.shadcnblocks.com",
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
+    url: "public/logo1.png",
+    src: "public/logo1.png",
     alt: "logo",
-    title: "Shadcnblocks.com",
   },
 
   menu = [
     { title: "Home", url: "#" },
     {
-      title: "Products",
+      title: "About",
       url: "#",
-      items: [
-        {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Resources",
-      url: "#",
-      items: [
-        {
-          title: "Help Center",
-          description: "Get all the answers you need right here",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Contact Us",
-          description: "We are here to help you with any questions you have",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Status",
-          description: "Check the current status of our services and APIs",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Pricing",
-      url: "#",
+      
     },
     {
       title: "Blog",
       url: "#",
+      
+    },
+    {
+      title: "Program",
+      url: "#",
+    },
+    {
+      title: "Contact",
+      url: "#",
     },
   ],
 
-  auth = {
-    login: { title: "Login", url: "#" },
-    signup: { title: "Sign up", url: "#" },
-  }
 }) => {
   return (
-    <section className="py-4">
-      <div className="container">
-        {/* Desktop Menu */}
-        <nav className="hidden items-center justify-between lg:flex">
-          <div className="flex items-center gap-6">
-            {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
-              <span className="text-lg font-semibold tracking-tighter">
-                {logo.title}
-              </span>
-            </a>
-            <div className="flex items-center">
-              <NavigationMenu>
-                <NavigationMenuList>
-                  {menu.map((item) => renderMenuItem(item))}
-                </NavigationMenuList>
-              </NavigationMenu>
-            </div>
-          </div>
-          <div className="flex gap-2">
-            <Button asChild variant="outline" size="sm">
-              <a href={auth.login.url}>{auth.login.title}</a>
-            </Button>
-            <Button asChild size="sm">
-              <a href={auth.signup.url}>{auth.signup.title}</a>
-            </Button>
-          </div>
-        </nav>
+    <section className="relative pt-8 pb-8 pr-16 pl-16 ">
+  <nav
+    className="
+      hidden lg:flex
+      mx-auto 
+      items-center justify-space-between 
+      max-w-[1200px] h-[52px]
+      pt-4 pr-40 pb-4 pl-40
+      rounded-[99px]
+      bg-[rgba(236,241,244,0.03)]
+      backdrop-blur-[10px]
+      border border-[rgba(255,255,255,0.18)]
+      shadow-[inset_1px_1px_2px_rgba(255,255,255,0.3),inset_-1px_-1px_2px_rgba(255,255,255,0.1),inset_0_1px_10px_rgba(255,255,255,0.2)]
+    "
+  >
+    <div className="flex items-center  w-full">
+      {/* Logo */}
+      <a href={logo.url} className="flex items-center gap-2 ">
+        <Image
+          src="/logo1.png"
+          width={84}
+          height={50}
+          className=""
+          alt={logo.alt}
+        />
+      </a>
+
+      {/* Menu */}
+      <div className="ml-auto justify-between text-[#8C8CA1]  w-[423px] h-[39px] bg-red ">
+        <NavigationMenu>
+          <NavigationMenuList className=" w-68 ">
+            {menu.map((item) => renderMenuItem(item))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+    </div>
+  </nav>
 
         {/* Mobile Menu */}
         <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between
+      bg-[rgba(236,241,244,0.03)]
+      backdrop-blur-[10px]" >
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+            <a href={logo.url} className="flex items-center gap-10">
+              <img src={logo.src} className="max-h-8 " alt={logo.alt} />
             </a>
             <Sheet>
               <SheetTrigger asChild>
@@ -158,7 +112,7 @@ const Navbar1 = ({
                 <SheetHeader>
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center gap-2">
-                      <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+                      <img src={logo.src} className="max-h-8 " alt={logo.alt} />
                     </a>
                   </SheetTitle>
                 </SheetHeader>
@@ -167,20 +121,13 @@ const Navbar1 = ({
                     {menu.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
 
-                  <div className="flex flex-col gap-3">
-                    <Button asChild variant="outline">
-                      <a href={auth.login.url}>{auth.login.title}</a>
-                    </Button>
-                    <Button asChild>
-                      <a href={auth.signup.url}>{auth.signup.title}</a>
-                    </Button>
-                  </div>
+                  
                 </div>
               </SheetContent>
             </Sheet>
           </div>
         </div>
-      </div>
+
     </section>
   );
 };
@@ -205,7 +152,7 @@ const renderMenuItem = (item) => {
     <NavigationMenuItem key={item.title}>
       <NavigationMenuLink
         href={item.url}
-        className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors">
+        className="bg-transparent hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors">
         {item.title}
       </NavigationMenuLink>
     </NavigationMenuItem>
@@ -240,7 +187,7 @@ const SubMenuLink = ({
 }) => {
   return (
     <a
-      className="hover:bg-muted hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
+      className="hover:bg-transparent hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
       href={item.url}>
       <div className="text-foreground">{item.icon}</div>
       <div>
