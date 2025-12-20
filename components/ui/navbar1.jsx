@@ -56,77 +56,99 @@ const Navbar1 = ({
 }) => {
   return (
     <section className="relative pt-8 pb-8 pr-16 pl-16 ">
-  <nav
-    className="
-      hidden lg:flex
-      mx-auto 
-      items-center justify-space-between 
-      max-w-[1200px] h-[52px]
-      pt-4 pr-40 pb-4 pl-40
-      rounded-[99px]
-      bg-[rgba(236,241,244,0.03)]
-      backdrop-blur-[10px]
-      border border-[rgba(255,255,255,0.18)]
-      shadow-[inset_1px_1px_2px_rgba(255,255,255,0.3),inset_-1px_-1px_2px_rgba(255,255,255,0.1),inset_0_1px_10px_rgba(255,255,255,0.2)]
-    "
-  >
-    <div className="flex items-center  w-full">
-      {/* Logo */}
-      <a href={logo.url} className="flex items-center gap-2 ">
-        <Image
-          src="/logo1.png"
-          width={84}
-          height={50}
-          className=""
-          alt={logo.alt}
-        />
-      </a>
+      <nav
+        className="
+          hidden lg:flex
+          mx-auto 
+          items-center justify-space-between 
+          max-w-[1200px] h-[52px]
+          pt-4 pr-40 pb-4 pl-40
+          rounded-[99px]
+          bg-[rgba(236,241,244,0.03)]
+          backdrop-blur-[10px]
+          border border-[rgba(255,255,255,0.18)]
+          shadow-[inset_1px_1px_2px_rgba(255,255,255,0.3),inset_-1px_-1px_2px_rgba(255,255,255,0.1),inset_0_1px_10px_rgba(255,255,255,0.2)]
+        "
+      >
+        <div className="flex items-center  w-full">
+          {/* Logo */}
+          <a href={logo.url} className="flex items-center gap-2 ">
+            <Image
+              src="/logo1.png"
+              width={84}
+              height={50}
+              className=""
+              alt={logo.alt}
+            />
+          </a>
 
-      {/* Menu */}
-      <div className="ml-auto justify-between text-[#8C8CA1]  w-[423px] h-[39px] bg-red ">
-        <NavigationMenu>
-          <NavigationMenuList className=" w-68 ">
-            {menu.map((item) => renderMenuItem(item))}
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
-    </div>
-  </nav>
-
-        {/* Mobile Menu */}
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between
-      bg-[rgba(236,241,244,0.03)]
-      backdrop-blur-[10px]" >
-            {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-10">
-              <img src={logo.src} className="max-h-8 " alt={logo.alt} />
-            </a>
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Menu className="size-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
-                      <img src={logo.src} className="max-h-8 " alt={logo.alt} />
-                    </a>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-6 p-4">
-                  <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
-                    {menu.map((item) => renderMobileMenuItem(item))}
-                  </Accordion>
-
-                  
-                </div>
-              </SheetContent>
-            </Sheet>
+          {/* Menu */}
+          <div className="ml-auto justify-between text-[#8C8CA1]  w-[423px] h-[39px] bg-red ">
+            <NavigationMenu>
+              <NavigationMenuList className=" w-68 ">
+                {menu.map((item) => renderMenuItem(item))}
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
         </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div className="block lg:hidden">
+        <div className="flex items-center justify-between px-6 py-4
+          rounded-[99px]
+          bg-[rgba(236,241,244,0.03)]
+          backdrop-blur-[10px]
+          border border-[rgba(255,255,255,0.18)]
+          shadow-[inset_1px_1px_2px_rgba(255,255,255,0.3),inset_-1px_-1px_2px_rgba(255,255,255,0.1),inset_0_1px_10px_rgba(255,255,255,0.2)]"
+        >
+          {/* Logo */}
+          <a href={logo.url} className="flex items-center">
+            <Image 
+              src="/logo1.png" 
+              width={84}
+              height={50}
+              className="" 
+              alt={logo.alt} 
+            />
+          </a>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="text-[#8C8CA1] hover:bg-[rgba(255,255,255,0.1)]"
+              >
+                <Menu className="size-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent 
+              className="overflow-y-auto
+                bg-[rgba(236,241,244,0.03)]
+                backdrop-blur-[10px]
+                border-l border-[rgba(255,255,255,0.18)]"
+            >
+              <SheetHeader>
+                <SheetTitle>
+                  <a href={logo.url} className="flex items-center gap-2">
+                    <Image 
+                      src="/logo1.png" 
+                      width={84}
+                      height={50}
+                      alt={logo.alt} 
+                    />
+                  </a>
+                </SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-6 p-4">
+                <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
+                  {menu.map((item) => renderMobileMenuItem(item))}
+                </Accordion>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
 
     </section>
   );
@@ -163,7 +185,7 @@ const renderMobileMenuItem = (item) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
+        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline text-[#8C8CA1]">
           {item.title}
         </AccordionTrigger>
         <AccordionContent className="mt-2">
@@ -176,7 +198,7 @@ const renderMobileMenuItem = (item) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
+    <a key={item.title} href={item.url} className="text-md font-semibold text-[#8C8CA1] hover:text-white transition-colors">
       {item.title}
     </a>
   );

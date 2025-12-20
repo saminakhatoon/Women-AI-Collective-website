@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import {Navbar1} from "@/components/ui/navbar1"
-import {Circle }from"lucide-react"
+
+
 export default function  Herosection(){
     return (
        <>
@@ -8,9 +9,6 @@ export default function  Herosection(){
   {/* background gradient */}
   <div className='absolute inset-0 z-0'>
 
-    {/* Top gradient */}
-    <div className="absolute inset-0 bg-[linear-gradient(180deg,#31091E_0%,rgba(49,9,30,0)_50%,#31091E_100%)]"></div>
-    
     {/* Image positioned absolutely */}
     <Image
       src="/pink light gradient.png"
@@ -24,21 +22,31 @@ export default function  Herosection(){
 <div className='relative z-10 flex flex-col min-h-screen'>
   {/*Navbar component from ui folder*/}
   <Navbar1/>
-<div className="mx-auto w-[1032px] h-[38px] bg-[#06061A]/50 rounded-[10px] px-8 flex items-center justify-center gap-4 shadow-[0px_0px_10px_0px_rgba(255,255,255,0.2)] backdrop-blur-sm">
+<div className="mx-auto w-[1000px] h-[58px] bg-[#06061A]/50 rounded-[10px] px-8 flex items-center justify-center gap-4 shadow-[0px_0px_10px_0px_rgba(255,255,255,0.2)] backdrop-blur-sm">
   
-  {/* Icon Span - Circular background */}
-  <span className="flex items-center justify-center bg-[#F1247B] w-8 h-8 rounded-full flex-shrink-0">
-    <Circle size={16} className="text-white" />
-  </span>  
+  <div className="relative w-6 h-[25px]">
+  <div 
+    className="absolute top-0 left-0 w-6 h-[25px] rounded-full"
+    style={{ background: '#F1247B' }}
+  />
+  
 
-  {/* Text Span - Responsive text size and clean alignment */}
-  <span className="font-work font-bold text-[18px] md:text-[20px] text-[#F5C939] leading-none truncate">
+  <div 
+    className="absolute top-[1px] left-[1px] w-[22px] h-[23px] rounded-full"
+    style={{ background: '#F991CC' }}
+  />
+  <div 
+    className="absolute top-[5px] left-[5px] w-[14px] h-[15px] rounded-full"
+    style={{ background: '#F1247B' }}
+  />
+</div> 
+  <span className="font-work font-bold text-[18px] md:text-[20px] text-[#F5C939]  ">
     Applications are now open for the Artificial Intelligence 101 Program 2026
   </span>
 
 </div>
 
-   <div className="flex justify-center mb-30 sm:mb-8 md:mb-10 lg:mb-12">
+   <div className="flex justify-center  sm:mb-1 md:mb-2 lg:mb-4 ">
     <Image
       src="/logo1.png"
       width={400}
@@ -54,19 +62,42 @@ export default function  Herosection(){
     We are on a Mission to Empower {" "}
   </span>
 
-  <span className="block md:inline italic font-semibold text-xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight text-[#FAFCFE]">
-    Young  {" "}
+  <span className="relative inline-block italic font-semibold text-xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight text-[#FAFCFE] " >
+    Young 
+     <Image 
+    src="/Vector 1.png" 
+  width={176}       // match Figma width
+    height={1}   
+    alt="underline" 
+    className="absolute left-0 -bottom-1 "
+  />
+     {" "}
   </span>
-  <span className="block md:inline italic font-semibold text-xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight text-[#FAFCFE]">
+  <span className="relative inline-block italic font-semibold text-xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight text-[#FAFCFE]" >
     women
+     <Image 
+    src="/Vector 2.png" 
+    width={176}       // match Figma width
+    height={1}   
+    alt="underline" 
+    className="absolute left-0 -bottom-1"
+  />
   </span>
 
   <span className="block md:inline font-semibold text-xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight md:leading-[70px] text-[#FAFCFE]">
     {" " }  Build  {" "}
-    <span className="block md:inline italic font-semibold text-xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight text-[#FAFCFE]">
-    Carrer {" "}
+    <span className="relative inline-block italic font-semibold text-xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight text-[#FAFCFE]">
+    Carrer
+      <Image 
+      src="/Vector 3.png" 
+     width={176}       // match Figma width
+    height={1}  
+      alt="underline" 
+      className="absolute left -bottom-1 "
+    />
+    {"  "}
   </span>
-     of the Future
+    {" "} of the Future
   </span>
 </h1>
 <p className=' flex flex-col block md:inline font-medium text-2lg sm:text-sm md:text-lg lg:text-3lg leading-tight md:leading-[70px] text-[#FAFCFE]'> 
