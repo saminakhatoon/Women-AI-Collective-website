@@ -110,11 +110,19 @@ export default function Herosection(){
 <p className=' flex flex-col block md:inline font-large text-2lg sm:text-sm md:text-lg lg:text-xl leading-tight md:leading-[70px] text-[#FAFCFE]'> 
         From Zero to AI Fluet: Every Girl ,  Every Stram ,  every Dream!</p>
 
-      <Button className="h-10 px-6 md:px-8 bg-[#F1247B] font-bold text-[18px] text-[#FFFFFF] font-semibold text-sm md:text-base lg:text-lg rounded-[10px] hover:bg-[#F1247B] hover:shadow-4xl active:scale-100 active:shadow-inner transition-all duration-150"
-   >
-        JOIN THE AI 101 PROGRAM
-      </Button>
-
+<Button 
+  className="h-[41px] w-[300px] px-5 py-2.5 bg-[#F1247B] font-bold text-[18px] text-[#FFFFFF] uppercase tracking-[0.04em] leading-[100%] rounded-[10px] transition-all duration-200 ease-out hover:opacity-90 hover:bg-[#F1247BE5] hover:border-2 active:duration-0 active:opacity-100 active:bg-[#F1247BE5] active:border-2"
+  style={{
+    boxShadow: `
+      1px 1px 2px 0px #ECF1F44D inset,
+      -1px -1px 2px 0px #ECF1F41A inset,
+      0px 1px 10px 0px #ECF1F44D inset
+    `,
+    fontFamily: 'Work Sans'
+  }}
+>
+  JOIN THE AI 101 PROGRAM
+</Button>
  </div>
  </div>
 <div className="bg-gradient-to-b from-[#9B0F52] to-[#0A0212]  h-[100px]"></div>

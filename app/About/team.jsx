@@ -69,7 +69,7 @@ const TeamSection = () => {
       linkedinUrl: "https://linkedin.com"
     },
     {
-      name: "Samina Khatoon",
+      name: "SHRIYA PACHUNURI",
       place:"Hyedrabad, India",
       role: "Web Developer",
       description: "I’m Shriya, with experience building end-to-end AI and web platforms from data to deployment. I believe technology has the greatest impact when it’s built with clarity, empathy, and intention- especially in spaces that shape inclusion. That belief led me to contribute to building WAIC.",
@@ -103,18 +103,28 @@ const TeamSection = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-pink-200 p-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
-          OUR TEAM
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-          {teamMembers.map((member, index) => (
-            <TeamMemberCard key={index} {...member} />
-          ))}
-        </div>
-      </div>
+   <div className="relative min-h-screen p-8">
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <img 
+      src="/Desktop - 2.png" 
+      alt="Background"
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto">
+    <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+      OUR TEAM
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      {teamMembers.map((member, index) => (
+        <TeamMemberCard key={index} {...member} />
+      ))}
     </div>
+  </div>
+</div>
   );
 };
 

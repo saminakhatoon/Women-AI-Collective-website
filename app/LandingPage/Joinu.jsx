@@ -1,5 +1,5 @@
 import Image from 'next/image'
-
+import {Button} from "../../components/ui/button"
 export default function JoinUs(){
   return(
     <div className="w-full min-h-[500px] bg-black flex flex-col items-center justify-center px-6 text-center py-16">
@@ -32,7 +32,7 @@ export default function JoinUs(){
       width={176}
       height={1}  
       alt="underline" 
-      className="absolute left-0 -bottom-2 w-full"
+      className="absolute left-0 -bottom-1 w-full"
     />
     </span>
             {" "}
@@ -43,10 +43,19 @@ export default function JoinUs(){
         ARE YOU UP FOR IT?
       </h1>
 
-      <button className="h-10 mt-6 px-6 md:px-8 bg-[#F1247B] font-bold text-[18px] text-[#FFFFFF] font-semibold text-sm md:text-base lg:text-lg rounded-[10px] hover:bg-[#F1247B] hover:shadow-4xl active:scale-100 active:shadow-inner transition-all duration-150"
-   >
-        JOIN THE AI 101 PROGRAM
-      </button>
+    <Button 
+  className="h-[41px] w-[300px] px-5 py-2.5 bg-[#F1247B] font-bold text-[18px] text-[#FFFFFF] uppercase tracking-[0.04em] leading-[100%] rounded-[10px] transition-all duration-200 ease-out hover:opacity-90 hover:bg-[#F1247BE5] hover:border-2 active:duration-0 active:opacity-100 active:bg-[#F1247BE5] active:border-2"
+  style={{
+    boxShadow: `
+      1px 1px 2px 0px #ECF1F44D inset,
+      -1px -1px 2px 0px #ECF1F41A inset,
+      0px 1px 10px 0px #ECF1F44D inset
+    `,
+    fontFamily: 'Work Sans'
+  }}
+>
+  JOIN THE AI 101 PROGRAM
+</Button>
     </div>
   )
 }

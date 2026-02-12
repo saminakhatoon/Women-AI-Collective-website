@@ -56,10 +56,10 @@ export default function Footer() {
   </div>
 
   {/* RIGHT — Social Icons + Links */}
-  <div className="flex flex-col items-start md:items-end gap-4 w-full md:w-auto">
+  <div className="flex flex-col items-start md:items-end gap-4  md:w-auto">
 
     {/* Social Icons */}
-    <div className="flex gap-4 md:gap-5">
+    <div className="flex gap-2 md:gap-2">
       <img src="/Instagram.png" alt="instagram"/>
       <img src="/LinkedIn.png" alt="LinkedIn"/>
       <img src="/WhatsApp.png" alt="WhatsApp"/>

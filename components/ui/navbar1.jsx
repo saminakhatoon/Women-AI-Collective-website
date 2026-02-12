@@ -1,7 +1,7 @@
 "use client"
 
 import { Book, Menu, Sunset, Trees, Zap ,X} from "lucide-react";
-
+import {useState} from "react"
 import Image from 'next/image'
 import {
   Accordion,
@@ -26,7 +26,7 @@ import {
   SheetTrigger,
   SheetClose
 } from "../ui/sheet";
-
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 const Navbar1 = ({
   logo = {
     url: "https://www.shadcnblocks.com",
@@ -58,8 +58,10 @@ const Navbar1 = ({
   ],
 
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <section className="sticky top-0 z-50 py-4 px-0 md:px-8 lg:px-16">
+    <section className="top-0 z-50 py-4 px-0 md:px-8 lg:px-16">
       <nav
         className=" 
           hidden lg:flex
@@ -97,8 +99,8 @@ const Navbar1 = ({
       </nav>
 
       {/* Mobile Menu */}
-      <div className="block lg:hidden">
-        <div className="flex items-center justify-between w-full
+      <div className="block lg:hidden px-5">
+        <div className="flex items-center justify-between w-full h-[40px]
           rounded-[80px]
           bg-[rgba(236,241,244,0.03)]
           backdrop-blur-[10px]
@@ -111,52 +113,71 @@ const Navbar1 = ({
               src="/logo1.png" 
               width={100}
               height={200}
-              className=" px-6 " 
+              className="px-6" 
               alt={logo.alt} 
             />
           </a>
-          <Sheet>
-  <SheetTrigger asChild>
-    <Button 
-      variant="ghost" 
-      size="icon"
-      className="text-[#8C8CA1] hover:bg-[rgba(255,255,255,0.1)]"
-    >
-      <Menu className="size-6 mr-15" />
-    </Button>
-  </SheetTrigger>
-  <SheetContent 
-    className="y-auto h-90 bg-[#31091EB2] backdrop-blur-[50px] "
-  >
-    <SheetHeader className="relative">
-      <SheetTitle>
-        <a href={logo.url} className="flex items-center gap-2">
-          <Image 
-            src="/logo1.png" 
-            width={60}
-            height={40}
-            alt={logo.alt} 
-          />
-        </a>
-      </SheetTitle>
-      {/* Close Button */}
-      <SheetClose asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute right-0 top-0 text-[#8C8CA1] hover:bg-[rgba(255,255,255,0.1)]"
-        >
-          <X className="size-6 " />
-        </Button>
-      </SheetClose>
-    </SheetHeader>
-    <div className="flex flex-col gap-6 p-4">
-      <Accordion type="single" collapsible className=" text-white flex w-full flex-col gap-4">
-        {menu.map((item) => renderMobileMenuItem(item))}
-      </Accordion>
-    </div>
-  </SheetContent>
-</Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="w-[30px] h-[30px] p-0 text-white hover:bg-transparent mr-3"
+              >
+                <div className="w-[30px] h-[30px] flex flex-col justify-center items-center relative">
+                  {/* Hamburger to X animation */}
+                  <span 
+                    className={`absolute w-full h-[2px] bg-white rounded transition-all duration-300 ${
+                      isOpen ? 'rotate-45' : '-translate-y-2'
+                    }`}
+                  ></span>
+                  <span 
+                    className={`absolute w-full h-[2px] bg-white rounded transition-all duration-300 ${
+                      isOpen ? 'opacity-0' : 'opacity-100'
+                    }`}
+                  ></span>
+                  <span 
+                    className={`absolute w-full h-[2px] bg-white rounded transition-all duration-300 ${
+                      isOpen ? '-rotate-45' : 'translate-y-2'
+                    }`}
+                  ></span>
+                </div>
+              </Button>
+            </SheetTrigger>
+            <SheetContent 
+              side="top"
+              className="w-[335px] h-auto mx-5 mt-[80px] bg-gradient-to-b from-[#4A0D30] to-[#2D0820] backdrop-blur-[50px] rounded-b-[12px] p-0 transition-all duration-300 ease-in border-0 left-5 right-5 [&>button]:hidden"
+              style={{
+                boxShadow: '0px 4px 20px 0px #D6D8E033'
+              }}
+            >
+              <VisuallyHidden>
+                <SheetTitle>Navigation Menu</SheetTitle>
+              </VisuallyHidden>
+              
+              <div className="flex flex-col py-[10px] gap-[10px]">
+                {menu.map((item, index) => (
+                  <div key={item.title}>
+                    <SheetClose asChild>
+                      <a 
+                        href={item.url} 
+                        className="block text-white text-[24px] font-normal py-4 px-6 text-center hover:text-[#F1247B] transition-colors duration-200"
+                        style={{
+                          fontFamily: 'Work Sans',
+                          lineHeight: '1.2'
+                        }}
+                      >
+                        {item.title}
+                      </a>
+                    </SheetClose>
+                    {index < menu.length - 1 && (
+                      <div className="w-[253px] h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
 
@@ -191,35 +212,12 @@ const renderMenuItem = (item) => {
   );
 };
 
-const renderMobileMenuItem = (item) => {
-  if (item.items) {
-    return (
-      <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline text-white ">
-          {item.title}
-        </AccordionTrigger>
-        <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <SubMenuLink key={subItem.title} item={subItem} />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-    );
-  }
-
-  return (
-    <a key={item.title} href={item.url} className="text-md font-semibold text-[#FAFCFE] hover:text-white transition-colors">
-      {item.title}
-    </a>
-  );
-};
-
 const SubMenuLink = ({
   item
 }) => {
   return (
-    <a
-      className="hover:bg-transparent hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
+    
+     <a className="hover:bg-transparent hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
       href={item.url}>
       <div className="text-foreground">{item.icon}</div>
       <div>
